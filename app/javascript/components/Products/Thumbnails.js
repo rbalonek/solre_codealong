@@ -13,7 +13,7 @@ class Thumbnails extends React.Component {
       return null;
     } else {
       return (
-        <ul id="product-thumbnails" class="thumbnails inline" data-hook>
+        <ul id="product-thumbnails" className="thumbnails inline" data-hook>
           {this.props.thumbnails.map((thumbnail, index) => (
             <li key={index} className="tmb/all">
               <a

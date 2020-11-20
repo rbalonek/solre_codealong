@@ -14,7 +14,7 @@ class Properties extends React.Component {
     } else {
       return (
         <>
-          <h6 class="product-section-title">Properties:</h6>
+          <h6 className="product-section-title">Properties:</h6>
           <table id="product-properties" className="table-display" data-hook>
             <tbody>
               {this.props.properties.map((property, index) => (

@@ -16,6 +16,8 @@ class Show extends React.Component {
       properties: [],
       image: "",
       thumbnails: [],
+      id: 0,
+      price: "",
     };
   }
 
@@ -37,6 +39,8 @@ class Show extends React.Component {
             mini_url: image.mini_url,
             product_url: image.product_url,
           })),
+          id: response.id,
+          price: response.price,
         });
       });
   };
@@ -89,7 +93,7 @@ class Show extends React.Component {
               </div>
 
               <div id="cart-form" data-hook="cart_form">
-                <CartForm />
+                <CartForm id={this.state.id} price={this.state.price} />
               </div>
             </div>
 
