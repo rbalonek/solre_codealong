@@ -41,6 +41,11 @@ class Show extends React.Component {
       });
   };
 
+  changeImage = (id) => {
+    var thumbnail = this.state.thumbnails.filter((image) => image.id == id)[0];
+    this.setState({ image: thumbnail.product_url });
+  };
+
   componentDidMount() {
     this.getProduct();
   }
@@ -59,7 +64,10 @@ class Show extends React.Component {
                 <Image image={this.state.image} />
               </div>
               <div id="thumbnails" data-hook>
-                <Thumbnails thumbnails={this.state.thumbnails} />
+                <Thumbnails
+                  thumbnails={this.state.thumbnails}
+                  changeImage={this.changeImage}
+                />
               </div>
             </div>
 

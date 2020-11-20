@@ -16,7 +16,10 @@ class Thumbnails extends React.Component {
         <ul id="product-thumbnails" class="thumbnails inline" data-hook>
           {this.props.thumbnails.map((thumbnail, index) => (
             <li key={index} className="tmb/all">
-              <a href="javascript:;">
+              <a
+                href="javascript:;"
+                onClick={() => this.props.changeImage(thumbnail.id)}
+              >
                 <img src={thumbnail.mini_url} key={index}></img>
               </a>
             </li>
