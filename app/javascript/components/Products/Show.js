@@ -14,6 +14,7 @@ class Show extends React.Component {
       path: window.location.pathname,
       taxons: [],
       properties: [],
+      image: "",
     };
   }
 
@@ -29,6 +30,7 @@ class Show extends React.Component {
             (classification) => classification.taxon
           ),
           properties: response.product_properties,
+          image: response.master.images[0].product_url,
         });
       });
   };
@@ -48,7 +50,7 @@ class Show extends React.Component {
           <div className="row" data-hook="product_left_part_wrap">
             <div id="product-images" data-hook="product_images">
               <div id="main-image" data-hook>
-                <Image />
+                <Image image={this.state.image} />
               </div>
               <div id="thumbnails" data-hook>
                 <Thumbnails />
