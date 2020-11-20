@@ -4,12 +4,32 @@ class Properties extends React.Component {
   constructor() {
     super();
     this.state = {
-      name: "Bob",
+      name: "Loading...",
     };
   }
 
   render() {
-    return <div>Hi, {this.state.name}!</div>;
+    if (this.props.properties.length == 0) {
+      return null;
+    } else {
+      return (
+        <>
+          <h6 class="product-section-title">Properties:</h6>
+          <table id="product-properties" className="table-display" data-hook>
+            <tbody>
+              {this.props.properties.map((property, index) => (
+                <tr class={index % 2 == 0 ? "even" : "odd"} key {...index}>
+                  <td>
+                    <strong>{property.property_name}</strong>
+                  </td>
+                  <td>{property.value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </>
+      );
+    }
   }
 }
 

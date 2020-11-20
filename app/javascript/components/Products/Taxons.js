@@ -9,7 +9,7 @@ class Taxons extends React.Component {
   }
 
   render() {
-    if (this.props.taxons.length === 0) {
+    if (this.props.taxons.length == 0) {
       return null;
     } else {
       return (
@@ -20,7 +20,9 @@ class Taxons extends React.Component {
             <ul id="similar_items_by_taxon" data-hook>
               {this.props.taxons.map((taxon, index) => (
                 <li>
-                  <a href={"/t/" + taxon.permalink}>{taxon.name}</a>
+                  <a href={"/t/" + taxon.permalink} key {...index}>
+                    {taxon.name}
+                  </a>
                 </li>
               ))}
             </ul>

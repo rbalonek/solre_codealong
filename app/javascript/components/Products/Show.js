@@ -13,6 +13,7 @@ class Show extends React.Component {
       description: "",
       path: window.location.pathname,
       taxons: [],
+      properties: [],
     };
   }
 
@@ -27,6 +28,7 @@ class Show extends React.Component {
           taxons: response.classifications.map(
             (classification) => classification.taxon
           ),
+          properties: response.product_properties,
         });
       });
   };
@@ -54,7 +56,7 @@ class Show extends React.Component {
             </div>
 
             <div data-hook="product_properties">
-              <Properties />
+              <Properties properties={this.state.properties} />
             </div>
           </div>
         </div>
