@@ -18,7 +18,7 @@ class Properties extends React.Component {
           <table id="product-properties" className="table-display" data-hook>
             <tbody>
               {this.props.properties.map((property, index) => (
-                <tr className={index % 2 == 0 ? "even" : "odd"} key {...index}>
+                <tr className={index % 2 == 0 ? "even" : "odd"}>
                   <td>
                     <strong>{property.property_name}</strong>
                   </td>

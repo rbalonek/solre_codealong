@@ -9,7 +9,7 @@ class Image extends React.Component {
   }
 
   render() {
-    return <img src={this.props.image} />;
+    return <img src={this.props.image} key={this.props.image} />;
   }
 }
 

@@ -15,6 +15,7 @@ class Show extends React.Component {
       taxons: [],
       properties: [],
       image: "",
+      thumbnails: [],
     };
   }
 
@@ -31,6 +32,11 @@ class Show extends React.Component {
           ),
           properties: response.product_properties,
           image: response.master.images[0].product_url,
+          thumbnails: response.master.images.map((image) => ({
+            id: image.id,
+            mini_url: image.mini_url,
+            product_url: image.product_url,
+          })),
         });
       });
   };
@@ -53,7 +59,7 @@ class Show extends React.Component {
                 <Image image={this.state.image} />
               </div>
               <div id="thumbnails" data-hook>
-                <Thumbnails />
+                <Thumbnails thumbnails={this.state.thumbnails} />
               </div>
             </div>
 
