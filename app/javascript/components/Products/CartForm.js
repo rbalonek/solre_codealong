@@ -4,9 +4,13 @@ class CartForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      name: "Bob",
+      quantity: 1,
     };
   }
+
+  changeQuantity = (e) => {
+    this.setState({ quantity: e.target.value });
+  };
 
   render() {
     return (
@@ -22,7 +26,7 @@ class CartForm extends React.Component {
             <h6 className="product-section-title">Price</h6>
             <div>
               <span className="price selling" itemprop="price">
-                ${this.props.price}
+                ${(this.props.price * this.state.quantity).toFixed(2)}
               </span>
               <span itemprop="priceCurrency"></span>
             </div>
@@ -35,7 +39,8 @@ class CartForm extends React.Component {
                 className="title"
                 name="quantity"
                 min={1}
-                defaultValue={1}
+                value={this.state.quantity}
+                onChange={this.changeQuantity}
               />
               <input type="hidden" name="variant_id" value={this.props.id} />
               <button
