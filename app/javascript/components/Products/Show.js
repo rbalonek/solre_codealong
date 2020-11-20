@@ -12,6 +12,7 @@ class Show extends React.Component {
       name: "Loading... ",
       description: "",
       path: window.location.pathname,
+      taxons: [],
     };
   }
 
@@ -23,6 +24,9 @@ class Show extends React.Component {
         this.setState({
           name: response.name,
           description: response.description,
+          taxons: response.classifications.map(
+            (classification) => classification.taxon
+          ),
         });
       });
   };
@@ -71,7 +75,7 @@ class Show extends React.Component {
               </div>
             </div>
 
-            <Taxons />
+            <Taxons taxons={this.state.taxons} />
           </div>
         </div>
       </div>
